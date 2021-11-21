@@ -1,0 +1,278 @@
+@import "variables";
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: "Titillium Web", sans-serif;
+}
+h1,
+h2 {
+  margin: 0 0 0.9rem 0;
+  color: #202020;
+}
+
+p {
+  color: #202020;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #202020;
+}
+hr {
+  width: 200px;
+  margin-right: 100%;
+}
+#page {
+  background: $light;
+  min-height: 100vh;
+}
+header {
+  text-align: center;
+  padding: 1rem;
+}
+
+#nav {
+  padding: 10px 0;
+  background: linear-gradient(#fff, #fff);
+  box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.01);
+  .wrapp-navigation {
+    max-width: 550px;
+    margin: 0 auto;
+    display: flex;
+  }
+  #login,
+  #logout {
+    padding: 5px 10px;
+    display: inline-block;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 20px;
+    .material-icons {
+      display: inline-block;
+      margin-left: 5px;
+      pointer-events: none;
+    }
+  }
+
+  #logout {
+    border: 1px solid red;
+    color: red;
+  }
+  #login {
+    border: 1px solid orange;
+    color: orange;
+  }
+}
+
+.wrapper {
+  max-width: 550px;
+  background: white;
+  margin: 0 auto 1.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.01);
+  border-radius: 20px;
+}
+.comment-wrap {
+  @extend .wrapper;
+  background: transparent;
+  box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0);
+}
+.single-post {
+  p {
+    margin: 0.3rem 0;
+  }
+  .post-title {
+    font-size: 1.2rem;
+    margin: 0 0 0.3rem 0;
+  }
+  .post-date {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin: 0 0 0.1rem 0;
+  }
+  .comment-date {
+    font-style: italic;
+    font-size: 0.8rem;
+  }
+
+  #post-title {
+    width: 100%;
+    border: none;
+    background: rgb(245, 245, 245);
+    min-height: 33px;
+  }
+
+  .post-comments {
+    padding-left: 0.7rem;
+  }
+  .post-comment {
+    position: relative;
+  }
+}
+.publish-post-wrap {
+  position: relative;
+  margin-top: 20px;
+}
+.comment-input {
+  display: block;
+  border: none;
+  min-width: 100%;
+  max-width: 100%;
+  resize: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  background: rgb(245, 245, 245);
+  padding: 0.7rem 5rem 0.7rem 1.2rem;
+  transition: 0.4s all ease;
+  box-shadow: inset 0 0 100px 2px rgba(0, 0, 0, 0.05);
+}
+.comment-input:focus {
+  outline: none;
+  box-shadow: inset 0 0 100px 2px rgba(0, 0, 0, 0);
+}
+.btn {
+  position: relative;
+  width: fit-content;
+  padding: 0.7rem;
+  min-height: 43px;
+  margin-top: 0;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  appearance: none;
+  background: transparent;
+  outline: none;
+  overflow: hidden;
+
+  .material-icons {
+    display: inline-block;
+    margin-left: 5px;
+    pointer-events: none;
+  }
+}
+.btn-comment {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: cadetblue;
+  border-radius: 50%;
+}
+.btn-post {
+  color: cadetblue;
+  border: 1px solid;
+  margin-top: 10px;
+}
+
+.post-input {
+  min-width: 100%;
+  max-width: 100%;
+  resize: none;
+  outline: none;
+  @extend .comment-input;
+}
+#login-modal,
+#register-modal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  z-index: 10;
+  display: none;
+  .btn-form-submit {
+    position: relative;
+    div {
+      position: absolute;
+      background: #fff;
+      z-index: 100;
+      border-radius: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      animation: ripple 0.5s linear infinite;
+      display: block;
+      pointer-events: none;
+      transform-origin: center center;
+    }
+  }
+  .form-wrap {
+    padding: 0.7rem;
+  }
+  .relative-input {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .label {
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    border-bottom: 2px solid $theme;
+    height: 100%;
+    span {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateY(0px);
+      transition: 0.3s all ease;
+      z-index: 10;
+    }
+    &.active span {
+      transform: translateY(-17px);
+      font-size: 0.9rem;
+    }
+  }
+
+  input {
+    width: 100%;
+    border: none;
+  }
+  input:focus {
+    outline: none;
+  }
+  .btn-form-submit {
+    text-align: center;
+    justify-content: center;
+    font-weight: 600;
+    background: $theme;
+    border-radius: 0;
+    color: white;
+    width: 100%;
+  }
+  form {
+    width: 240px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0.5;
+    width: 0;
+    height: 0;
+  }
+
+  100% {
+    opacity: 0;
+    width: 500px;
+    height: 500px;
+  }
+}

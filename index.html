@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/post.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="iconfont/material-icons.css">
+</head>
+
+<body>
+    <div id="page">
+
+        <div id="login-modal">
+
+            <form action="#">
+                <div class="form-wrap">
+                    <h2>
+                        Login
+                    </h2>
+                    <div class="relative-input">
+                        <label class="label" for="username">
+                            <span>Username:</span>
+                        </label>
+                        <input class="inpt-el" type="text" id="username">
+                    </div>
+                    <div class="relative-input">
+                        <label class="label" for="password">
+                            <span>Password:</span>
+                        </label>
+                        <input class="inpt-el" type="text" id="password">
+                    </div>
+
+                </div>
+                <button id="submit-login" type="submit" class="btn btn-form-submit">Login</button>
+
+            </form>
+        </div>
+
+        <div id="register-modal">
+            <form action="#">
+
+                <div class="form-wrap">
+                    <h2>
+                        Register for free!
+                    </h2>
+                    <div class="relative-input">
+                        <label class="label" for="name">
+                            <span>Name:</span>
+                        </label>
+                        <input class="inpt-el" type="text" id="name">
+                    </div>
+
+                    <div class="relative-input">
+                        <label class="label" for="surname">
+                            <span> Surname:</span>
+                        </label>
+                        <input class="inpt-el" type="text" id="surname">
+                    </div>
+
+                    <div class="relative-input">
+                        <label class="label" for="username">
+                            <span>Username:</span>
+                        </label>
+                        <input class="inpt-el" type="text" id="username-register">
+                    </div>
+
+                    <div class="relative-input">
+                        <label class="label" for="password">
+                            <span>Password:</span>
+                        </label>
+                        <input class="inpt-el" type="text" id="password-register">
+                    </div>
+
+                    <div class="wrapp-message">
+                        <p id="message-register"></p>
+                    </div>
+                </div>
+                <label for="wb-admin"><input id="wb-admin" type="checkbox">Check if u want admin rights!</label>
+                <button id="submit-register" type="submit" class="btn btn-form-submit">Register</button>
+
+            </form>
+
+        </div>
+
+        <nav id="nav">
+
+        </nav>
+
+        <header class="blog-wrap">
+            <span style="font-size: 20px;" class="material-icons">arrow_right_alt</span>
+            <h1>Welcome to my blog</h1>
+        </header>
+
+        <div id="admin-bar">
+
+        </div>
+
+        <div id="posts" class="wrap-posts">
+
+        </div>
+        <!-- END wrap post -->
+    </div>
+    <!-- TEMPLEJTI  ZA RAD APLIKACIJE -->
+    <template id="nav-tpl">
+        <div class="wrapp-navigation">
+            {{#if loggedInUser}}
+            <a href="#" id="{{names.logout}}" class="btn">Logout <i class="material-icons">arrow_back</i></a>
+            {{else}}
+            <a href="#" id="{{names.login}}" class="btn">login <i class="material-icons">exit_to_app</i></a>
+            <a href="#" id="{{names.register}}" class="btn">Register <i class="material-icons">exit_to_app</i></a>
+            {{/if}}
+        </div>
+    </template>
+
+    <template id="admin-template">
+        <div class="single-post wrapper">
+            <h2>Create blog post</h2>
+            <input placeholder="Post title" id="{{names.title}}" class="post-input" type="text">
+            <div class="publish-post-wrap">
+                <textarea placeholder="Post content" cols="30" id="{{names.content}}" class="post-input"></textarea>
+                <button id="{{names.submit}}" class="btn btn-post">Publish post<i
+                        class="material-icons">send</i></button>
+            </div>
+        </div>
+    </template>
+
+
+    <template id="post-template">
+        <div class="single-post wrapper" data-postid="{{post.ID}}">
+            <p class="post-date">Postend on: {{post.date}}, by: {{post.user.firstName}} {{post.user.lastName}}</p>
+            <h2 class="post-title">{{post.title}}</h2>
+            <div class="post-content">
+                <p class="post-content-text">{{post.content}}</p>
+            </div>
+            {{#if post.comments}}
+            <h3 class="comment-title">Comments</h3>
+            <div class="post-comments">
+                {{#each post.comments}}
+                <div class="comment">
+                    <div class="comment-content">{{this.content}}
+                    </div>
+                    <p class="comment-date">Posted on: {{this.date}}, by {{this.user.firstName}} {{this.user.lastName}}
+                    </p>
+                </div>
+                <hr>
+                {{/each}}
+            </div>
+            {{/if}}
+            {{#if loggedInUser}}
+            <div class="post-comment">
+                <textarea data-postid="{{post.ID}}" class="comment-input" cols="30" rows="2"></textarea>
+                <button data-postid="{{post.ID}}" class="btn btn-comment"><i class="material-icons">send</i></button>
+            </div>
+            {{else}}
+            <p>You need to login to post comments!</p>
+            {{/if}}
+
+            <!-- END Single post -->
+    </template>
+
+    <script src="./JS/App.bundle.js"></script>
+    <script src="./JS/jquery.js"></script>
+    <script src="JS/animation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/post.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="page">
+        <div id="login-modal">
+
+        </div>
+        <header class="blog-wrap">
+            <h1>Welcome to my blog</h1>
+        </header>
+
+        <div id="posts" class="wrap-posts">
+            <!-- <div class="single-post">
+                <p class="post-date">Postend on: 31 12 1993, by: Vuk Mistovic</p>
+                <h2 class="post-title">Post title</h2>
+                <div class="post-content">
+                    <p class="post-content-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsam
+                        corporis sed repellendus delectus. Natus ipsam, a saepe nisi harum quidem cum nulla. Ab eius
+                        dolores quas, voluptates iure cumque.</p>
+                </div>
+
+                <h3 class="comment-title">Comments </h3>
+                <div class="post-comments">
+                    <div class="comment">
+                        <div class="comment-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+                            omnis,
+                            magnam
+                            quasi nisi, totam laboriosam velit iusto quisquam incidunt numquam nemo voluptatem laborum.
+                            Illum
+                        </div>
+                        <p class="comment-date">Posted on: 12. 12. 1994, by Ksenija Gledovic</p>
+                    </div>
+
+                </div>
+
+                <div class="post-comment">
+                    <textarea name="" id="" class="comment-input" cols="30" rows="10"></textarea>
+                    <button class="btn btn-comment">Comment</button>
+                </div>
+            </div> -->
+            <!-- END Single post -->
+        </div>
+        <!-- END wrap post -->
+
+    </div>
+
+
+    <template id="template">
+        <div class="single-post">
+            <p class="post-date">Postend on: {{Post.date}}, by: {{Post.user.firstName}} {{POst.user.lastName}}</p>
+            <h2 class="post-title">{{Post.title}}</h2>
+            <div class="post-content">
+                <p class="post-content-text">{{Post.content}}</p>
+            </div>
+
+            <h3 class="comment-title">Comments</h3>
+            <div class="post-comments">
+                {{#if Post.comment}}
+                <div class="comment">
+                    <div class="comment-content">{{Comment.content}}
+                    </div>
+                    <p class="comment-date">Posted on: {{this.date}}, by {{this.user.firstName}} {{this.user.lastName}}
+                    </p>
+                </div>
+                {{/if}}
+            </div>
+            {{#if loggedUser}}
+            <div class="post-comment">
+                <textarea name="" id="" class="comment-input" cols="30" rows="10"></textarea>
+                <button class="btn btn-comment">Comment</button>
+            </div>
+            {{/if}}
+        </div>
+        <!-- END Single post -->
+    </template>
+
+    <script src="./JS/App.js"></script>
+</body>
+
+</html>

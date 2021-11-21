@@ -1,0 +1,367 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: "Titillium Web", sans-serif;
+}
+
+h1,
+h2 {
+  margin: 0 0 0.9rem 0;
+  color: #202020;
+}
+
+p {
+  color: #202020;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #202020;
+}
+
+hr {
+  width: 200px;
+  margin-right: 100%;
+}
+
+#page {
+  background: whitesmoke;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+}
+
+#nav {
+  padding: 10px 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff));
+  background: linear-gradient(#fff, #fff);
+  -webkit-box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.01);
+          box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.01);
+}
+
+#nav .wrapp-navigation {
+  max-width: 550px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#nav #login,
+#nav #logout {
+  padding: 5px 10px;
+  display: inline-block;
+  vertical-align: middle;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 20px;
+}
+
+#nav #login .material-icons,
+#nav #logout .material-icons {
+  display: inline-block;
+  margin-left: 5px;
+  pointer-events: none;
+}
+
+#nav #logout {
+  border: 1px solid red;
+  color: red;
+}
+
+#nav #login {
+  border: 1px solid orange;
+  color: orange;
+}
+
+.wrapper, .comment-wrap {
+  max-width: 550px;
+  background: white;
+  margin: 0 auto 1.5rem;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.01);
+          box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.01);
+  border-radius: 20px;
+}
+
+.comment-wrap {
+  background: transparent;
+  -webkit-box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0);
+          box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0);
+}
+
+.single-post p {
+  margin: 0.3rem 0;
+}
+
+.single-post .post-title {
+  font-size: 1.2rem;
+  margin: 0 0 0.3rem 0;
+}
+
+.single-post .post-date {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0 0 0.1rem 0;
+}
+
+.single-post .comment-date {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.single-post #post-title {
+  width: 100%;
+  border: none;
+  background: whitesmoke;
+  min-height: 33px;
+}
+
+.single-post .post-comments {
+  padding-left: 0.7rem;
+}
+
+.single-post .post-comment {
+  position: relative;
+}
+
+.publish-post-wrap {
+  position: relative;
+  margin-top: 20px;
+}
+
+.comment-input, .post-input {
+  display: block;
+  border: none;
+  min-width: 100%;
+  max-width: 100%;
+  resize: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  background: whitesmoke;
+  padding: 0.7rem 5rem 0.7rem 1.2rem;
+  -webkit-transition: 0.4s all ease;
+  transition: 0.4s all ease;
+  -webkit-box-shadow: inset 0 0 100px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 0 100px 2px rgba(0, 0, 0, 0.05);
+}
+
+.comment-input:focus, .post-input:focus {
+  outline: none;
+  -webkit-box-shadow: inset 0 0 100px 2px rgba(0, 0, 0, 0);
+          box-shadow: inset 0 0 100px 2px rgba(0, 0, 0, 0);
+}
+
+.btn {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.7rem;
+  min-height: 43px;
+  margin-top: 0;
+  border: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 20px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  outline: none;
+  overflow: hidden;
+}
+
+.btn .material-icons {
+  display: inline-block;
+  margin-left: 5px;
+  pointer-events: none;
+}
+
+.btn-comment {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: cadetblue;
+  border-radius: 50%;
+}
+
+.btn-post {
+  color: cadetblue;
+  border: 1px solid;
+  margin-top: 10px;
+}
+
+.post-input {
+  min-width: 100%;
+  max-width: 100%;
+  resize: none;
+  outline: none;
+}
+
+#login-modal,
+#register-modal {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fff;
+  z-index: 10;
+  display: none;
+}
+
+#login-modal .btn-form-submit,
+#register-modal .btn-form-submit {
+  position: relative;
+}
+
+#login-modal .btn-form-submit div,
+#register-modal .btn-form-submit div {
+  position: absolute;
+  background: #fff;
+  z-index: 100;
+  border-radius: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-animation: ripple 0.5s linear infinite;
+          animation: ripple 0.5s linear infinite;
+  display: block;
+  pointer-events: none;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+#login-modal .form-wrap,
+#register-modal .form-wrap {
+  padding: 0.7rem;
+}
+
+#login-modal .relative-input,
+#register-modal .relative-input {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#login-modal .label,
+#register-modal .label {
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  pointer-events: none;
+  border-bottom: 2px solid #026f83;
+  height: 100%;
+}
+
+#login-modal .label span,
+#register-modal .label span {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+  z-index: 10;
+}
+
+#login-modal .label.active span,
+#register-modal .label.active span {
+  -webkit-transform: translateY(-17px);
+          transform: translateY(-17px);
+  font-size: 0.9rem;
+}
+
+#login-modal input,
+#register-modal input {
+  width: 100%;
+  border: none;
+}
+
+#login-modal input:focus,
+#register-modal input:focus {
+  outline: none;
+}
+
+#login-modal .btn-form-submit,
+#register-modal .btn-form-submit {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+  background: #026f83;
+  border-radius: 0;
+  color: white;
+  width: 100%;
+}
+
+#login-modal form,
+#register-modal form {
+  width: 240px;
+  -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    opacity: 0.5;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0.5;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 500px;
+    height: 500px;
+  }
+}
